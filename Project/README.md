@@ -17,6 +17,7 @@
   - 메시지 브로커는 메시지를 일시적으로 저장하고 비동기적으로 처리하며, 시스템의 처리 능력에 맞춰 메시지를 관리 <br>
   - 시스템의 부하를 분산시키고, 피크 타임에 발생할 수 있는 부하를 관리하는 데에도 중요한 역할
 
+
 ### Message Broker의 장점
   - 확장성 <br> 
     대량의 메시지를 처리할 수 있으며, 추가적인 부하를 처리하기 위해 수평적으로 확장 가능
@@ -44,9 +45,9 @@
 - 컨슈머가 메시지를 성공적으로 처리했는지 여부를 브로커에게 전달하여 신뢰성 있는 전달 보장 
   - 브로커가 메시지 처리여부를 확인할 수 있기 때문에 트랜잭션과 같이 안정적인 처리가 필요한 작업에 적합
 
+
 ### Kafka (Event Broker)
 - Dumb Broker, Smart Consumer
-
 
 ![kafka](../assets/images/kafka.png)
 - 프로듀서가 보낸 메시지를 디스크에 로그 형태로 저장
@@ -62,9 +63,11 @@
 - 브로커를 여러 서버에 분산하여 운영하는 클러스터링에 유리하다.
   - 컨슈머가 오프셋을 사용하여 메시지에 접근하므로 각 노드는 받아온 메시지들만 동기화하면 된다.
 - 분산시스템의 높은 처리량을 필요로하는 대용량 실시간 스트리밍, 데이터 파이프라인, 로그 집계 및 분석에 유리하다.
-    
 
-[뒤로](https://github.com/DasolKang/Interview_Question_for_Beginner) / [위로](#Project-진행-관련-CS)
+</br>
+    
+[뒤로](https://github.com/DasolKang/Interview_Question_for_Beginner) / [위로](#Project-진행-관련-CS) &nbsp; | &nbsp; [참고1](https://betterprogramming.pub/rabbitmq-vs-kafka-1ef22a041793) 
+[참고2](https://www.youtube.com/watch?v=0lyrd5FlETQ) <br>
 
 </br>
 
