@@ -143,6 +143,11 @@ Test-Driven Development(TDD)는 매우 짧은 개발 사이클의 반복에 의�
 일단 테스트 통과하는 코드를 작성하고 상황에 맞게 리팩토링하는 과정을 거친다. <br>
 말 그대로 테스트가 코드 작성을 주도하는 개발방식인 것이다.
 
+### TDD 개발 주기
+- Red : 실패하는 테스트 코드를 작성
+- Greed : 테스트코드 성공시키기 위한 실제 코드 작성
+- Blue : 중복코드제거, 일반화 등의 리팩토링 진행
+
 ### TDD의 장점
 
 - 개발자의 요구사항에 대한 이해 향상
@@ -160,19 +165,26 @@ Test-Driven Development(TDD)는 매우 짧은 개발 사이클의 반복에 의�
 <br>
 
 ### BDD 란 무엇인가
-BDD는 TDD의 한 확장으로, 시나리오 중심의 테스트 작성에 집중하며, 비즈니스 이해관계자와 개발자 간의 소통을 돕는 방법론<br>
+BDD는 TDD의 한 확장으로, 사용자의 행위를 기반으로 사용자 시나리오를 구성하여 테스트 케이스를 작성하고 개발을 진행하는 방식<br>
+시나리오 중심의 테스트 작성에 집중하며, 비즈니스 이해관계자와 개발자 간의 소통을 돕는 방법론<br>
  일반적으로 Given-When-Then 형식으로 작성하여 비즈니스 로직을 이해하기 쉽게 설명
-- Given: 초기 조건을 설정 (예상 결과 정의)
+- Given: 초기 조건을 설정 (예상 결과 정의),  
+  사용자 행위를 수행하기 위해 주어진 ‘환경’에 대해 서술   
+  해당 단계에서는 시스템이나 애플리케이션의 초기 상태, 환경, 입력 등에 대해 서술
   ```
   given(teamRepository.findById(1L)).willReturn(Optional.of(team));
   given(contestRepository.save(contest)).willReturn(contest);
   ```
-- When: 특정 이벤트나 행동을 정의  (테스트 메서드 수행)
+- When: 특정 이벤트나 행동을 정의  (테스트 메서드 수행) <br>
+  실제 사용자 행위에 대해서 서술 <br>
+  해당 단계에서는 시스템이나 애플리케이션 내에 발생하는 특정 조건이나 이벤트들에 대해 서술
   ```
   ContestCreateResponse result = ContestService
           .createContest(createDto, contestImage, 1L);
   ```
-- Then: 기대 결과를 설명 (결과 검증)
+- Then: 기대 결과를 설명 (결과 검증) <br>
+  행위에 따른 기대결과를 서술 <br>
+  해당 단계에서는 예상되는 동작이 실제로 발생하는지 확인하고 기대한 결과가 나오는지에 대한 검증을 수행하여 서술
   ```
   assertNotNull(result);
   then(contestRepository).should().save(contest);
